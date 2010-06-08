@@ -4,9 +4,57 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.view.WindowManager;
+import android.app.Dialog;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
+import android.content.DialogInterface.OnClickListener;
+
 
 
 public class Clock extends Activity {
+	
+	final void about() {
+//		Dialog d = new Dialog(Clock.this);
+//		Window w = d.getWindow();
+//		w.setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND, WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
+//		d.setTitle("Dialog title");
+//		d.setContentView(R.layout.dialog_view);
+//		d.show();
+		
+		Context context = Clock.this;
+		String title = "it is pitch black";
+		String message = "you are likely to trip and fall in a hole.";
+		String button1String = "Go Back";
+		String button2String = "Move Forward";
+		
+		AlertDialog.Builder ad = new AlertDialog.Builder(context);
+		ad.setTitle(title);
+		ad.setMessage(message);
+		ad.setPositiveButton(button1String,
+				new OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+						// TODO Auto-generated method stub
+						
+					}
+		});
+		ad.setNegativeButton(button2String,
+				new OnClickListener() {
+					public void onClick(DialogInterface dialog, int which) {
+					// nothing
+					}
+		});
+		ad.setCancelable(true);
+		ad.setOnCancelListener(new OnCancelListener() {
+					public void onCancel(DialogInterface Dialog) {
+						// nothing
+					}
+		});
+		ad.show();
+	}
 	
 	static final private int MENU_ADD = 0;
 	static final private int MENU_SETTINGS = 1;
@@ -32,6 +80,7 @@ public class Clock extends Activity {
 	        //quit();
 	        return true;
 	    case MENU_ABOUT:
+	    	about();
 	    	return true;
 	    case MENU_EXIT:
 	    	finish();
