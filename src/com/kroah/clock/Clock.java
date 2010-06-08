@@ -1,14 +1,14 @@
 package com.kroah.clock;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.Window;
-import android.view.WindowManager;
-import android.app.Dialog;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
@@ -55,10 +55,11 @@ public class Clock extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    switch (item.getItemId()) {
 	    case MENU_ADD:
-	        //newGame();
+	        timezone_list.add(0, "timezone foo");
+	        timezone_adapter.notifyDataSetChanged();
 	        return true;
 	    case MENU_SETTINGS:
-	        //quit();
+	        //settings();
 	        return true;
 	    case MENU_ABOUT:
 	    	about();
@@ -70,10 +71,32 @@ public class Clock extends Activity {
 	    return false;
 	}
 	
+    private ArrayList<String> timezone_list;
+    private ArrayAdapter<String> timezone_adapter;
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
+        
+        ListView myListView = (ListView)findViewById(R.id.myListView);
+        
+        timezone_list = new ArrayList<String>();
+        timezone_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, timezone_list);
+        myListView.setAdapter(timezone_adapter);
+
+        timezone_list.add(0, "timezone 1");
+        timezone_list.add(0, "timezone 2");
+        timezone_list.add(0, "timezone 3");
+        timezone_list.add(0, "timezone 4");
+        timezone_list.add(0, "timezone 5");
+        timezone_list.add(0, "timezone 6");
+        timezone_list.add(0, "timezone 7");
+        timezone_list.add(0, "timezone 8");
+        timezone_list.add(0, "timezone 9");
+        timezone_list.add(0, "timezone10");
+        timezone_list.add(0, "timezone22");
+        timezone_adapter.notifyDataSetChanged();
     }
 }
