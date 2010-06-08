@@ -14,8 +14,8 @@
 
     </application>
     
-    <uses-permission android:name="android.permission.BATTERY_STATS"/>
-    <uses-permission android:name="android.permission_group.STORAGE"/>
+<!--<uses-permission android:name="android.permission.BATTERY_STATS"/> -->
+<!--<uses-permission android:name="android.permission_group.STORAGE"/> -->
 
 
 </manifest> 

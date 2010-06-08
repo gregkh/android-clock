@@ -17,34 +17,15 @@ import android.content.DialogInterface.OnClickListener;
 
 public class Clock extends Activity {
 	
+	// Display a simple "About" dialog
 	final void about() {
-//		Dialog d = new Dialog(Clock.this);
-//		Window w = d.getWindow();
-//		w.setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND, WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
-//		d.setTitle("Dialog title");
-//		d.setContentView(R.layout.dialog_view);
-//		d.show();
-		
-		Context context = Clock.this;
-		String title = "it is pitch black";
-		String message = "you are likely to trip and fall in a hole.";
-		String button1String = "Go Back";
-		String button2String = "Move Forward";
-		
-		AlertDialog.Builder ad = new AlertDialog.Builder(context);
-		ad.setTitle(title);
-		ad.setMessage(message);
-		ad.setPositiveButton(button1String,
+		AlertDialog.Builder ad = new AlertDialog.Builder(Clock.this);
+		ad.setTitle(getString(R.string.about_title));
+		ad.setMessage(getString(R.string.about));
+		ad.setPositiveButton(getString(R.string.ok),
 				new OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
-						// TODO Auto-generated method stub
-						
-					}
-		});
-		ad.setNegativeButton(button2String,
-				new OnClickListener() {
-					public void onClick(DialogInterface dialog, int which) {
-					// nothing
+						// nothing
 					}
 		});
 		ad.setCancelable(true);
