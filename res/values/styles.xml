@@ -11,7 +11,7 @@
 
 	<style name="Text.Loading">
 		<item name="android:textSize">10sp</item>
-		<item name="android:textColor">@color/semi_white</item>
+		<item name="android:textColor">@color/white</item>
 	</style>
 
 </resources>

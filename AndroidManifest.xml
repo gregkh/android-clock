@@ -5,6 +5,8 @@
       android:versionName="001">
     <application android:icon="@drawable/icon" android:label="@string/app_name" android:description="@string/app_descrip">
     
+    	<service android:name=".UpdateService" />
+    
 	    <receiver android:name=".MedAppWidget">
 	    	<intent-filter>
     			<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />

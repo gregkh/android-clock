@@ -22,7 +22,7 @@ import android.content.DialogInterface.OnClickListener;
 
 public class Configure extends Activity {
 
-	public static final String MODULE = "ConfigureScreen";
+	public static final String MODULE = "GREGKHConfigureScreen";
 	int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
 	private Button okButton;
 	
