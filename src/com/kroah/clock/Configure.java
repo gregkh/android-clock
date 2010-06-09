@@ -9,16 +9,21 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.app.AlertDialog;
+import android.appwidget.AppWidgetManager;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
 
 
 
-public class Clock extends Activity {
+public class Configure extends Activity {
+	
+	int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
+	
 	// Display a simple "About" dialog
 	final void about() {
-		AlertDialog.Builder ad = new AlertDialog.Builder(Clock.this);
+		AlertDialog.Builder ad = new AlertDialog.Builder(Configure.this);
 		ad.setTitle(getString(R.string.about_title));
 		ad.setMessage(getString(R.string.about));
 		ad.setPositiveButton(getString(R.string.ok),
@@ -64,6 +69,9 @@ public class Clock extends Activity {
 			about();
 			return true;
 		case MENU_EXIT:
+			Intent result = new Intent();
+			result.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mAppWidgetId);
+			setResult(RESULT_OK, result);
 			finish();
 			return true;
 		}
@@ -78,6 +86,17 @@ public class Clock extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
+		
+		// Find the widget id from the intent.
+		Intent intent = getIntent();
+		Bundle extras = intent.getExtras();
+		if (extras != null) {
+			mAppWidgetId = extras.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
+		}
+		// If they gave us an intent without the widget id, get out
+		if (mAppWidgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
+			finish();
+		}
 
 		ListView myListView = (ListView)findViewById(R.id.myListView);
 
@@ -86,16 +105,6 @@ public class Clock extends Activity {
 		myListView.setAdapter(timezone_adapter);
 
 		timezone_list.add(0, "timezone 1");
-		timezone_list.add(0, "timezone 2");
-		timezone_list.add(0, "timezone 3");
-		timezone_list.add(0, "timezone 4");
-		timezone_list.add(0, "timezone 5");
-		timezone_list.add(0, "timezone 6");
-		timezone_list.add(0, "timezone 7");
-		timezone_list.add(0, "timezone 8");
-		timezone_list.add(0, "timezone 9");
-		timezone_list.add(0, "timezone10");
-		timezone_list.add(0, "timezone22");
 		timezone_adapter.notifyDataSetChanged();
 	}
 }

@@ -2,8 +2,10 @@
 <resources>
     <string name="hello">List of watched timezones here?</string>
     <string name="app_name">World Clock</string>
+    <string name="app_descrip">A World Clock desktop widget</string>
     <string name="ok">Ok</string>
     <string name="about">This is a tiny widget to figure out what the time is in different parts of the world.</string>
     <string name="about_title">About World Clock</string>
+    <string name="widget_loading">loading...</string>
     
 </resources>
