@@ -4,9 +4,12 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.app.AlertDialog;
 import android.appwidget.AppWidgetManager;
@@ -18,8 +21,10 @@ import android.content.DialogInterface.OnClickListener;
 
 
 public class Configure extends Activity {
-	
+
+	public static final String MODULE = "ConfigureScreen";
 	int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
+	private Button okButton;
 	
 	// Display a simple "About" dialog
 	final void about() {
@@ -85,7 +90,7 @@ public class Configure extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.config);
 		
 		// Find the widget id from the intent.
 		Intent intent = getIntent();
@@ -98,6 +103,18 @@ public class Configure extends Activity {
 			finish();
 		}
 
+		okButton = (Button)findViewById(R.id.myButton);
+		okButton.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				Log.d(MODULE, "button clicked");
+				Intent result = new Intent();
+				result.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mAppWidgetId);
+				setResult(RESULT_OK, result);
+				finish();
+			}
+		});
+		
+		
 		ListView myListView = (ListView)findViewById(R.id.myListView);
 
 		timezone_list = new ArrayList<String>();

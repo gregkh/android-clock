@@ -28,16 +28,18 @@ public final class R {
         public static final int widget_bg_selected=0x7f020008;
     }
     public static final class id {
-        public static final int delete_contact=0x7f090004;
-        public static final int edit_contact=0x7f090003;
-        public static final int exit=0x7f090005;
-        public static final int loading=0x7f090002;
+        public static final int delete_contact=0x7f090005;
+        public static final int edit_contact=0x7f090004;
+        public static final int exit=0x7f090006;
+        public static final int loading=0x7f090003;
+        public static final int myButton=0x7f090001;
         public static final int myListView=0x7f090000;
-        public static final int widget=0x7f090001;
+        public static final int widget=0x7f090002;
     }
     public static final class layout {
-        public static final int main=0x7f030000;
-        public static final int widget_loading=0x7f030001;
+        public static final int config=0x7f030000;
+        public static final int main=0x7f030001;
+        public static final int widget_loading=0x7f030002;
     }
     public static final class menu {
         public static final int menu=0x7f080000;
