@@ -14,8 +14,9 @@
 		android:includeFontPadding="false"
 		android:gravity="center_horizontal"
 		android:text="@string/widget_time"
-		android:padding="4dip"
+		android:padding="2dip"
 		style="@style/Text.Time" />
+
 	<TextView
 		android:id="@+id/date"
 		android:layout_height="wrap_content"
@@ -23,7 +24,8 @@
 		android:includeFontPadding="false"
 		android:gravity="center_horizontal"
 		android:text="@string/widget_date"
-		android:padding="4dip"
+		android:padding="2dip"
 		style="@style/Text.Date"/>
+
 </LinearLayout>
 

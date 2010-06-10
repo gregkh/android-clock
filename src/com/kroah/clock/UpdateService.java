@@ -34,10 +34,11 @@ public class UpdateService extends Service implements Runnable {
 	public void onStart(Intent intent, int startId) {
 		Log.d(MODULE, "onStart:enter");
 		RemoteViews updateViews = new RemoteViews(this.getPackageName(), R.layout.widget);
-		Date date = new Date();
-		DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.MEDIUM, Locale.getDefault());
 
-		updateViews.setTextViewText(R.id.time, format.format(date));
+//		Date date = new Date();
+//		DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.MEDIUM, Locale.getDefault());
+//
+//		updateViews.setTextViewText(R.id.time, format.format(date));
 
 		ComponentName thisWidget = new ComponentName(this, MedAppWidget.class);
 		AppWidgetManager manager = AppWidgetManager.getInstance(this);
@@ -58,15 +59,13 @@ public class UpdateService extends Service implements Runnable {
 //		ContentResolver resolve = getContentResolver();
 
 		RemoteViews updateViews = null;
-
 		updateViews = MedAppWidget.buildUpdate(this);
 
 		// Draw the updated time
 //		RemoteViews updateViews = new RemoteViews(this.getPackageName(), R.layout.widget_loading);
-		Date date = new Date();
-		DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.MEDIUM, Locale.getDefault());
-
-		updateViews.setTextViewText(R.id.time, format.format(date));
+//		Date date = new Date();
+//		DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.MEDIUM, Locale.getDefault());
+//		updateViews.setTextViewText(R.id.time, format.format(date));
 
 
 		ComponentName thisWidget = new ComponentName(this, MedAppWidget.class);

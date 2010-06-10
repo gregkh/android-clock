@@ -1,12 +1,17 @@
 package com.kroah.clock;
 
+import java.util.ArrayList;
+import java.util.TimeZone;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.app.AlertDialog;
 import android.appwidget.AppWidgetManager;
 import android.content.DialogInterface;
@@ -70,7 +75,10 @@ public class Configure extends Activity {
 		}
 		return false;
 	}
-
+	
+	private ArrayList<String> timezone_list;
+	private ArrayAdapter<String> timezone_adapter;
+	
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -102,6 +110,24 @@ public class Configure extends Activity {
 				finish();
 			}
 		});
+
+
+	
+		ListView list_view = (ListView)findViewById(R.id.time_zone_list);
+
+		timezone_list = new ArrayList<String>();
+		timezone_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, timezone_list);
+		list_view.setAdapter(timezone_adapter);
+
+//		TimeZone zone = new TimeZone();
+		String[] timezones = TimeZone.getAvailableIDs();
+		for (String s: timezones)
+			timezone_list.add(s);
+	
+		
+		//timezone_list.add(0, "timezone 1");
+		timezone_adapter.notifyDataSetChanged();
+
 		Log.d(MODULE, "onCreate:exit");
 	}
 }

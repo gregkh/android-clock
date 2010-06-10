@@ -1,5 +1,10 @@
 package com.kroah.clock;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
@@ -59,11 +64,21 @@ public class MedAppWidget extends AppWidgetProvider {
 		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 		if (pendingIntent == null)
 			Log.d(MODULE, "buildUpdate:pendingIntent == null");
-		views.setOnClickPendingIntent(R.id.time, pendingIntent);
+		views.setOnClickPendingIntent(R.id.widget, pendingIntent);
 
 //		Intent result = new Intent();
 //		result.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mAppWidgetId);
 
+		/* Update the display */
+		Date date = new Date();
+		DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.SHORT, Locale.getDefault());
+		views.setTextViewText(R.id.time, format.format(date));
+		
+		SimpleDateFormat f = new SimpleDateFormat("dd MMM yyyy");
+		views.setTextViewText(R.id.date, f.format(date));
+
+		
+		
 		Log.d(MODULE, "buildUpdate:exit");
 		return views;
 
