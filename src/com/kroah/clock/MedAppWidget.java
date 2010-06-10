@@ -28,7 +28,7 @@ public class MedAppWidget extends AppWidgetProvider {
 	public static RemoteViews buildUpdate(Context context) {
 		
 		Log.d(MODULE, "building widget update");
-		RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_loading);
+		RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget);
 		
 //		ContentResolver resolver = context.getContentResolver();
 //		Resources res = context.getResources();

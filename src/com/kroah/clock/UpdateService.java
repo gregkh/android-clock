@@ -32,7 +32,7 @@ public class UpdateService extends Service implements Runnable {
 	
 	@Override
 	public void onStart(Intent intent, int startId) {
-		RemoteViews updateViews = new RemoteViews(this.getPackageName(), R.layout.widget_loading);
+		RemoteViews updateViews = new RemoteViews(this.getPackageName(), R.layout.widget);
 		Date date = new Date();
 		DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.MEDIUM, Locale.getDefault());
 
