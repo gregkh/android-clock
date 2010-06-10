@@ -9,9 +9,13 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemClickListener;
 import android.app.AlertDialog;
 import android.appwidget.AppWidgetManager;
 import android.content.DialogInterface;
@@ -76,7 +80,6 @@ public class Configure extends Activity {
 		return false;
 	}
 	
-	private ArrayList<String> timezone_list;
 	private ArrayAdapter<String> timezone_adapter;
 	
 	/** Called when the activity is first created. */
@@ -111,22 +114,25 @@ public class Configure extends Activity {
 			}
 		});
 
-
-	
 		ListView list_view = (ListView)findViewById(R.id.time_zone_list);
-
-		timezone_list = new ArrayList<String>();
-		timezone_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, timezone_list);
-		list_view.setAdapter(timezone_adapter);
-
-//		TimeZone zone = new TimeZone();
 		String[] timezones = TimeZone.getAvailableIDs();
-		for (String s: timezones)
-			timezone_list.add(s);
-	
-		
+		timezone_adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, timezones);
+		list_view.setAdapter(timezone_adapter);
+//		for (String s: timezones)
+//			timezone_list.add(s);
+
 		//timezone_list.add(0, "timezone 1");
 		timezone_adapter.notifyDataSetChanged();
+
+		list_view.setTextFilterEnabled(true);
+		
+		list_view.setOnItemClickListener(new OnItemClickListener() {
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				// when clicked show a toast with the item selected
+				Toast.makeText(getApplicationContext(), ((TextView) view).getText(), Toast.LENGTH_SHORT).show();
+				
+			}
+		});
 
 		Log.d(MODULE, "onCreate:exit");
 	}
