@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory
+		android:title="Time Zone">
+	<CheckBoxPreference
+		android:key="PREF_CHECK_BOX"
+		android:title="Check box Preserence"
+		android:summary="Check Box Preference Description"
+		android:defaultValue="true"
+		/>
+	<ListPreference
+		android:key="PREF_TIME_ZONE"
+		android:title="Time Zone for this Widget"
+		android:summary="The time zone you want to use here"
+		android:dialogTitle="Time Zones">
+	</ListPreference>
+</PreferenceCategory>
+</PreferenceScreen>
