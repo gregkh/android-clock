@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
 
@@ -39,11 +40,13 @@ public class Clock extends Activity {
 
 	static final private int MENU_ABOUT = 0;
 	static final private int MENU_EXIT = 1;
+	static final private int MENU_CONFIG = 2;
 
 	/* Creates the menu items */
 	public boolean onCreateOptionsMenu(Menu menu) {
 	    menu.add(0, MENU_ABOUT, 0, "About").setIcon(R.drawable.menu_about);
 	    menu.add(0, MENU_EXIT, 0, "Exit").setIcon(R.drawable.menu_close);
+	    menu.add(0, MENU_CONFIG, 0, "Configure");
 	    return true;
 	}
 
@@ -55,6 +58,10 @@ public class Clock extends Activity {
 			return true;
 		case MENU_EXIT:
 			finish();
+			return true;
+		case MENU_CONFIG:
+			Intent intent = new Intent(this, Configure.class);
+			startActivity(intent);
 			return true;
 		}
 		return false;

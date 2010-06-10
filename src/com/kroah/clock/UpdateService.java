@@ -54,13 +54,19 @@ public class UpdateService extends Service implements Runnable {
 		
 		AppWidgetManager manager = AppWidgetManager.getInstance(this);
 //		ContentResolver resolve = getContentResolver();
+
+		RemoteViews updateViews = null;
 		
+		updateViews = MedAppWidget.buildUpdate(this);
+
 		// Draw the updated time
-		RemoteViews updateViews = new RemoteViews(this.getPackageName(), R.layout.widget_loading);
+		
+//		RemoteViews updateViews = new RemoteViews(this.getPackageName(), R.layout.widget_loading);
 		Date date = new Date();
 		DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.MEDIUM, Locale.getDefault());
 
 		updateViews.setTextViewText(R.id.loading, format.format(date));
+
 
 		ComponentName thisWidget = new ComponentName(this, MedAppWidget.class);
 		manager.updateAppWidget(thisWidget, updateViews);
