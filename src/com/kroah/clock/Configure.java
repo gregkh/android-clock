@@ -17,7 +17,7 @@ import android.content.DialogInterface.OnClickListener;
 public class Configure extends Activity {
 
 	public static final String MODULE = "GREGKHConfigureScreen";
-	int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
+	public static int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
 	private Button okButton;
 	
 	// Display a simple "About" dialog
@@ -82,10 +82,12 @@ public class Configure extends Activity {
 		Intent intent = getIntent();
 		Bundle extras = intent.getExtras();
 		if (extras != null) {
+			Log.d(MODULE, "onCreate:extras != null");
 			mAppWidgetId = extras.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
 		}
 		// If they gave us an intent without the widget id, get out
 		if (mAppWidgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
+			Log.d(MODULE, "onCreatea:mAppWidgetId == INVALID");
 			finish();
 		}
 

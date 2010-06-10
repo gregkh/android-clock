@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="hello"> This is a Widget, so there is nothing to do here</string>
+    <string name="configure">This is the configure screen</string>
     <string name="app_name">World Clock</string>
     <string name="app_descrip">A World Clock desktop widget</string>
     <string name="ok">Ok</string>

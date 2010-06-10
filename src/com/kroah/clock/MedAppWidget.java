@@ -22,6 +22,19 @@ public class MedAppWidget extends AppWidgetProvider {
 			appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, MedAppWidget.class));
 		}
 		
+		// Tie clicking on the button to bring up our configure screen
+		RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget);
+		if (views == null)
+			Log.d(MODULE, "buildUpdate:views == null");
+		Intent intent = new Intent(context, Configure.class);
+		if (intent == null)
+			Log.d(MODULE, "buildUpdate:intent == null");
+		intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, Configure.mAppWidgetId);
+		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
+		if (pendingIntent == null)
+			Log.d(MODULE, "buildUpdate:pendingIntent == null");
+		views.setOnClickPendingIntent(R.id.time, pendingIntent);
+		
 //		UpdateService.requestUpdate(appWidgetIds);
 		context.startService(new Intent(context, UpdateService.class));
 		Log.d(MODULE, "onUpdate:exit");
@@ -42,10 +55,14 @@ public class MedAppWidget extends AppWidgetProvider {
 		Intent intent = new Intent(context, Configure.class);
 		if (intent == null)
 			Log.d(MODULE, "buildUpdate:intent == null");
+		intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, Configure.mAppWidgetId);
 		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 		if (pendingIntent == null)
 			Log.d(MODULE, "buildUpdate:pendingIntent == null");
 		views.setOnClickPendingIntent(R.id.time, pendingIntent);
+
+//		Intent result = new Intent();
+//		result.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mAppWidgetId);
 		
 		Log.d(MODULE, "buildUpdate:exit");
 		return views;
