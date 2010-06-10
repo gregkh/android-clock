@@ -1,10 +1,5 @@
 package com.kroah.clock;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.app.Service;
@@ -35,11 +30,6 @@ public class UpdateService extends Service implements Runnable {
 		Log.d(MODULE, "onStart:enter");
 		RemoteViews updateViews = new RemoteViews(this.getPackageName(), R.layout.widget);
 
-//		Date date = new Date();
-//		DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.MEDIUM, Locale.getDefault());
-//
-//		updateViews.setTextViewText(R.id.time, format.format(date));
-
 		ComponentName thisWidget = new ComponentName(this, MedAppWidget.class);
 		AppWidgetManager manager = AppWidgetManager.getInstance(this);
 		manager.updateAppWidget(thisWidget, updateViews);
@@ -60,13 +50,6 @@ public class UpdateService extends Service implements Runnable {
 
 		RemoteViews updateViews = null;
 		updateViews = MedAppWidget.buildUpdate(this);
-
-		// Draw the updated time
-//		RemoteViews updateViews = new RemoteViews(this.getPackageName(), R.layout.widget_loading);
-//		Date date = new Date();
-//		DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.MEDIUM, Locale.getDefault());
-//		updateViews.setTextViewText(R.id.time, format.format(date));
-
 
 		ComponentName thisWidget = new ComponentName(this, MedAppWidget.class);
 		manager.updateAppWidget(thisWidget, updateViews);
