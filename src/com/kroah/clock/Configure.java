@@ -79,15 +79,15 @@ public class Configure extends Activity {
 		setContentView(R.layout.config);
 		
 		// Find the widget id from the intent.
-//		Intent intent = getIntent();
-//		Bundle extras = intent.getExtras();
-//		if (extras != null) {
-//			mAppWidgetId = extras.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
-//		}
-//		// If they gave us an intent without the widget id, get out
-//		if (mAppWidgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
-//			finish();
-//		}
+		Intent intent = getIntent();
+		Bundle extras = intent.getExtras();
+		if (extras != null) {
+			mAppWidgetId = extras.getInt(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID);
+		}
+		// If they gave us an intent without the widget id, get out
+		if (mAppWidgetId == AppWidgetManager.INVALID_APPWIDGET_ID) {
+			finish();
+		}
 
 		okButton = (Button)findViewById(R.id.myButton);
 		okButton.setOnClickListener(new View.OnClickListener() {
