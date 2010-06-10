@@ -8,14 +8,22 @@
 	style="@style/WidgetBackground">
 
 	<TextView
-		android:id="@+id/loading"
+		android:id="@+id/time"
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
 		android:includeFontPadding="false"
 		android:gravity="center_horizontal"
-		android:text="@string/widget_loading"
+		android:text="@string/widget_time"
 		android:padding="4dip"
-		style="@style/Text.Loading" />
-
+		style="@style/Text.Time" />
+	<TextView
+		android:id="@+id/date"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:includeFontPadding="false"
+		android:gravity="center_horizontal"
+		android:text="@string/widget_date"
+		android:padding="4dip"
+		style="@style/Text.Date"/>
 </LinearLayout>
 

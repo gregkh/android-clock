@@ -37,7 +37,7 @@ public class MedAppWidget extends AppWidgetProvider {
 		// Tie clicking on the button to bring up our configure screen
 		Intent intent = new Intent(context, Configure.class);
 		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
-		views.setOnClickPendingIntent(R.id.loading, pendingIntent);
+		views.setOnClickPendingIntent(R.id.widget, pendingIntent);
 		return views;
 		
 	}

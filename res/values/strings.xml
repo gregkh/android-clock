@@ -7,5 +7,7 @@
     <string name="about">This is a tiny widget to figure out what the time is in different parts of the world.</string>
     <string name="about_title">About World Clock</string>
     <string name="widget_loading">loading...</string>
+    <string name="widget_date">date</string>
+    <string name="widget_time">time</string>
     
 </resources>

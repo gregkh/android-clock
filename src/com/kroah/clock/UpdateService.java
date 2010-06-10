@@ -36,7 +36,7 @@ public class UpdateService extends Service implements Runnable {
 		Date date = new Date();
 		DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.MEDIUM, Locale.getDefault());
 
-		updateViews.setTextViewText(R.id.loading, format.format(date));
+		updateViews.setTextViewText(R.id.time, format.format(date));
 
 		ComponentName thisWidget = new ComponentName(this, MedAppWidget.class);
 		AppWidgetManager manager = AppWidgetManager.getInstance(this);
@@ -65,7 +65,7 @@ public class UpdateService extends Service implements Runnable {
 		Date date = new Date();
 		DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.MEDIUM, Locale.getDefault());
 
-		updateViews.setTextViewText(R.id.loading, format.format(date));
+		updateViews.setTextViewText(R.id.time, format.format(date));
 
 
 		ComponentName thisWidget = new ComponentName(this, MedAppWidget.class);

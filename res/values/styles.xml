@@ -9,7 +9,12 @@
 	<style name="Text">
 	</style>
 
-	<style name="Text.Loading">
+	<style name="Text.Time">
+		<item name="android:textSize">10sp</item>
+		<item name="android:textColor">@color/white</item>
+	</style>
+	
+	<style name="Text.Date">
 		<item name="android:textSize">10sp</item>
 		<item name="android:textColor">@color/white</item>
 	</style>
