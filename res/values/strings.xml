@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">List of watched timezones here?</string>
+    <string name="hello"> This is a Widget, so there is nothing to do here</string>
+    <string name="configure">This is the configure screen</string>
     <string name="app_name">World Clock</string>
+    <string name="app_descrip">A World Clock desktop widget</string>
     <string name="ok">Ok</string>
     <string name="about">This is a tiny widget to figure out what the time is in different parts of the world.</string>
     <string name="about_title">About World Clock</string>
+    <string name="widget_loading">loading...</string>
+    <string name="widget_date">date</string>
+    <string name="widget_time">time</string>
     
 </resources>

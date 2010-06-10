@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/widget"
+	android:layout_height="wrap_content"
+	android:layout_width="wrap_content"
+	android:focusable="true"
+	style="@style/WidgetBackground">
+
+	<TextView
+		android:id="@+id/time"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:includeFontPadding="false"
+		android:gravity="center_horizontal"
+		android:text="@string/widget_time"
+		android:padding="4dip"
+		style="@style/Text.Time" />
+	<TextView
+		android:id="@+id/date"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:includeFontPadding="false"
+		android:gravity="center_horizontal"
+		android:text="@string/widget_date"
+		android:padding="4dip"
+		style="@style/Text.Date"/>
+</LinearLayout>
+
