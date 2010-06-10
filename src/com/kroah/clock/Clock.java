@@ -17,7 +17,7 @@ import android.content.DialogInterface.OnClickListener;
 
 public class Clock extends Activity {
 	public static final String MODULE = "GREGKHMainScreen";
-	
+
 	// Display a simple "About" dialog
 	final void about() {
 		AlertDialog.Builder ad = new AlertDialog.Builder(Clock.this);
@@ -68,7 +68,7 @@ public class Clock extends Activity {
 	}
 
 	private Button okButton;
-	
+
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

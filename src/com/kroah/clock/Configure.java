@@ -19,7 +19,7 @@ public class Configure extends Activity {
 	public static final String MODULE = "GREGKHConfigureScreen";
 	public static int mAppWidgetId = AppWidgetManager.INVALID_APPWIDGET_ID;
 	private Button okButton;
-	
+
 	// Display a simple "About" dialog
 	final void about() {
 		AlertDialog.Builder ad = new AlertDialog.Builder(Configure.this);
@@ -77,7 +77,7 @@ public class Configure extends Activity {
 		Log.d(MODULE, "onCreate:enter");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.config);
-		
+
 		// Find the widget id from the intent.
 		Intent intent = getIntent();
 		Bundle extras = intent.getExtras();
