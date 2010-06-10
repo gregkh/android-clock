@@ -74,6 +74,7 @@ public class Configure extends Activity {
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		Log.d(MODULE, "onCreate:enter");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.config);
 		
@@ -91,12 +92,14 @@ public class Configure extends Activity {
 		okButton = (Button)findViewById(R.id.myButton);
 		okButton.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				Log.d(MODULE, "button clicked");
+				Log.d(MODULE, "ok button clicked");
 				Intent result = new Intent();
 				result.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, mAppWidgetId);
 				setResult(RESULT_OK, result);
+				Log.d(MODULE, "ok button finishing");
 				finish();
 			}
 		});
+		Log.d(MODULE, "onCreate:exit");
 	}
 }

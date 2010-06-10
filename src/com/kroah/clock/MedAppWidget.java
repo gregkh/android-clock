@@ -17,18 +17,22 @@ public class MedAppWidget extends AppWidgetProvider {
 	public void onUpdate(Context context,
 						   AppWidgetManager appWidgetManager,
 						   int[] appWidgetIds) {
+		Log.d(MODULE, "onUpdate:enter");
 		if (appWidgetIds == null) {
 			appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(context, MedAppWidget.class));
 		}
 		
 //		UpdateService.requestUpdate(appWidgetIds);
 		context.startService(new Intent(context, UpdateService.class));
+		Log.d(MODULE, "onUpdate:exit");
 	}
 
 	public static RemoteViews buildUpdate(Context context) {
 		
-		Log.d(MODULE, "building widget update");
+		Log.d(MODULE, "buildUpdate:enter");
 		RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget);
+		if (views == null)
+			Log.d(MODULE, "buildUpdate:views == null");
 		
 //		ContentResolver resolver = context.getContentResolver();
 //		Resources res = context.getResources();
@@ -36,8 +40,14 @@ public class MedAppWidget extends AppWidgetProvider {
 	
 		// Tie clicking on the button to bring up our configure screen
 		Intent intent = new Intent(context, Configure.class);
+		if (intent == null)
+			Log.d(MODULE, "buildUpdate:intent == null");
 		PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
-		views.setOnClickPendingIntent(R.id.widget, pendingIntent);
+		if (pendingIntent == null)
+			Log.d(MODULE, "buildUpdate:pendingIntent == null");
+		views.setOnClickPendingIntent(R.id.time, pendingIntent);
+		
+		Log.d(MODULE, "buildUpdate:exit");
 		return views;
 		
 	}

@@ -32,6 +32,7 @@ public class UpdateService extends Service implements Runnable {
 	
 	@Override
 	public void onStart(Intent intent, int startId) {
+		Log.d(MODULE, "onStart:enter");
 		RemoteViews updateViews = new RemoteViews(this.getPackageName(), R.layout.widget);
 		Date date = new Date();
 		DateFormat format = SimpleDateFormat.getTimeInstance(SimpleDateFormat.MEDIUM, Locale.getDefault());
@@ -47,10 +48,11 @@ public class UpdateService extends Service implements Runnable {
 				new Thread(this).start();
 			}
 		}
+		Log.d(MODULE, "onStart:exit");
 	}
 	
 	public void run() {
-		Log.d(MODULE, "Processing thread started");
+		Log.d(MODULE, "run:enter");
 		
 		AppWidgetManager manager = AppWidgetManager.getInstance(this);
 //		ContentResolver resolve = getContentResolver();
@@ -86,11 +88,14 @@ public class UpdateService extends Service implements Runnable {
 	
 		thread_running = false;
 		stopSelf();
+		Log.d(MODULE, "run:exit");
 	}
 	
 	@Override
 	public IBinder onBind(Intent intent) {
 		// TODO Auto-generated method stub
+		Log.d(MODULE, "onBind:enter");
+		Log.d(MODULE, "onBind:exit");
 		return null;
 	}
 }
